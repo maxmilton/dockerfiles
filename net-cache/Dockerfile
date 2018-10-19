@@ -13,4 +13,3 @@ COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 3128/tcp
-# CMD ["/usr/sbin/squid", "-NYCd", "1", "-f", "/etc/squid/squid.conf"]
