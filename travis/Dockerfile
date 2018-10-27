@@ -7,7 +7,7 @@
 #   docker build --no-cache -t local/travis .
 #
 
-FROM ruby:alpine@sha256:7a12bd61e18f13d46f5002e2c73957df2c5b2243222acea71159eb156355012c
+FROM ruby:alpine@sha256:e4c6f2fbbc13717e30a27d3575dd7168dd180dd7c0973810341b3617dfd8017b
 
 RUN set -xe \
   && apk add --no-cache --virtual .build-deps \
