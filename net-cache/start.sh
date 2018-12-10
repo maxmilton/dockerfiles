@@ -10,7 +10,10 @@ fi
 
 mkdir -p "$DATA_DIR"
 
-docker run -d --rm \
+# TODO: Use systemd to manage this container rather than docker --restart
+  # --restart unless-stopped \
+docker run -t \
+  --rm \
   --name net-cache \
   --net host \
   -v "$PWD"/mitm.pem:/etc/squid/mitm.pem \
