@@ -43,7 +43,7 @@ You can optionally pass an alternate Docker command:
 If using Arch Linux the container will fail to launch, in which case you can use the alternative launch script (see comments in script):
 
 ```sh
-./launch.insecure.sh
+./launch.arch.sh
 ```
 
 #### SELinux volumes
