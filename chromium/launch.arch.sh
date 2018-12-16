@@ -23,27 +23,27 @@ xhost +local:root
 xhost +local:docker
 
 # minimal chromium; no persistence; insecure
-# docker run \
-#   --rm \
-#   --name chromium \
-#   --network host \
-#   --memory 2gb \
-#   --read-only \
-#   --tmpfs /run:rw,nosuid,nodev \
-#   --tmpfs /tmp:rw,nosuid,nodev \
-#   --tmpfs /data:rw,noexec,nosuid,nodev,uid=6006,gid=6006,mode=0700 \
-#   --tmpfs /home/chromium:rw,nosuid,nodev,uid=6006,gid=6006,mode=0700,size=4m \
-#   --volume /dev/shm:/dev/shm \
-#   --volume /tmp/.X11-unix:/tmp/.X11-unix \
-#   --device /dev/snd \
-#   --device /dev/dri \
-#   --device /dev/video0 \
-#   --env DISPLAY=unix"$DISPLAY" \
-#   --group-add audio \
-#   --group-add video \
-#   --cap-add SYS_ADMIN \
-#   --security-opt seccomp="$DIR"/seccomp.json \
-#   local/chromium "$@"
+docker run \
+  --rm \
+  --name chromium \
+  --network host \
+  --memory 2gb \
+  --read-only \
+  --tmpfs /run:rw,nosuid,nodev \
+  --tmpfs /tmp:rw,nosuid,nodev \
+  --tmpfs /data:rw,noexec,nosuid,nodev,uid=6006,gid=6006,mode=0700 \
+  --tmpfs /home/chromium:rw,nosuid,nodev,uid=6006,gid=6006,mode=0700,size=4m \
+  --volume /dev/shm:/dev/shm \
+  --volume /tmp/.X11-unix:/tmp/.X11-unix \
+  --device /dev/snd \
+  --device /dev/dri \
+  --device /dev/video0 \
+  --env DISPLAY=unix"$DISPLAY" \
+  --group-add audio \
+  --group-add video \
+  --cap-add SYS_ADMIN \
+  --security-opt seccomp="$DIR"/seccomp.json \
+  local/chromium "$@"
 
 # Arch Linux version with special sound configuration and extra Japanese fonts
 # NOTE: Edit or remove the extra font line and alsa device
@@ -73,18 +73,3 @@ xhost +local:docker
 #   --volume /usr/share/fonts/uddigikyokasho:/usr/share/fonts/uddigikyokasho \
 #   \
 #   local/chromium --alsa-output-device=hw:0,3 about:blank
-
-docker run \
-  --rm \
-  --name chromium \
-  --network host \
-  --volume /dev/shm:/dev/shm \
-  --volume /tmp/.X11-unix:/tmp/.X11-unix \
-  --device /dev/dri \
-  --device /dev/video0 \
-  --env DISPLAY=unix"$DISPLAY" \
-  --group-add video \
-  --cap-add SYS_ADMIN \
-  --security-opt seccomp="$DIR"/seccomp.json \
-  local/chromium
-  # jess/chrome
