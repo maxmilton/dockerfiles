@@ -4,7 +4,7 @@
 #   docker build --no-cache -t local/net-tools .
 #
 
-FROM alpine:edge@sha256:72fac243935dc4398718b67c2469eafa6ccdca0c6af3ae365d5bba92400c69cd
+FROM alpine:edge@sha256:470a11fe3933f8028eadb0506b3ea319b5735937596514e8aedcff857ab0fecf
 
 RUN set -xe \
   && apk add --no-cache \
