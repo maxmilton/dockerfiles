@@ -20,9 +20,10 @@ docker run \
   --volume /tmp/.X11-unix:/tmp/.X11-unix \
   --volume "$HOME"/Development/0__data/fontforge:/home/fontforge:rw \
   --device /dev/dri \
-  --device /dev/video0 \
   --env DISPLAY=unix"$DISPLAY" \
   --group-add video \
   local/fontforge $@
   # OR
   # maxmilton/fontforge $@
+
+  #--device /dev/video0 \
