@@ -12,4 +12,4 @@ Released under the MIT licence; see [LICENCE](https://github.com/MaxMilton/docke
 
 -----
 
-© 2018 [Max Milton](https://maxmilton.com)
+© 2019 [Max Milton](https://maxmilton.com)

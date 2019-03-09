@@ -29,4 +29,4 @@ certutil -d sql:$HOME/.pki/nssdb -A -n 'localhost cert authority' -i mitm.der -t
 
 -----
 
-© 2018 [Max Milton](https://maxmilton.com)
+© 2019 [Max Milton](https://maxmilton.com)

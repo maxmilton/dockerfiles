@@ -36,4 +36,4 @@ Contents of this repository are MIT licensed open source. See [LICENCE](https://
 
 ---
 
-© 2018 [Max Milton](https://maxmilton.com)
+© 2019 [Max Milton](https://maxmilton.com)
