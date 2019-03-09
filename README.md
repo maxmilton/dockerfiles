@@ -1,6 +1,6 @@
 # Max's Dockerfiles
 
-Monorepo with all my personal docker images.
+🐋 Monorepo with all my personal docker images.
 
 ## Overview
 
