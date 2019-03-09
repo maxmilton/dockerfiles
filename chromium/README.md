@@ -1,5 +1,3 @@
-<!-- markdownlint-disable first-line-h1 ol-prefix -->
-
 [![Build Status](https://travis-ci.org/MaxMilton/docker-chromium.svg?branch=master)](https://travis-ci.org/MaxMilton/docker-chromium) [![Image version](https://images.microbadger.com/badges/version/maxmilton/chromium.svg)](https://microbadger.com/images/maxmilton/chromium) [![Image layers](https://images.microbadger.com/badges/image/maxmilton/chromium.svg)](https://microbadger.com/images/maxmilton/chromium)
 
 # Chromium In A Container
@@ -11,6 +9,8 @@ Based on the [amazing work done by jessfraz](https://github.com/jessfraz/dockerf
 Uses a very opinionated [default configuration](https://github.com/MaxMilton/docker-chromium/blob/master/default.conf) for performance and security.
 
 ## Usage
+
+TODO: Update instructions now that the image is part of my monorepo.
 
 ### Build
 

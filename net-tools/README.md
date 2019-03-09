@@ -1,5 +1,3 @@
-<!-- markdownlint-disable first-line-h1 ol-prefix -->
-
 [![Build Status](https://travis-ci.com/MaxMilton/docker-net-tools.svg?branch=master)](https://travis-ci.com/MaxMilton/docker-net-tools) [![Image version](https://images.microbadger.com/badges/version/maxmilton/net-tools.svg)](https://microbadger.com/images/maxmilton/net-tools) [![Image layers](https://images.microbadger.com/badges/image/maxmilton/net-tools.svg)](https://microbadger.com/images/maxmilton/net-tools)
 
 # 🥅 Net Tools In A Container
@@ -7,6 +5,8 @@
 A collection of Linux network tools in a docker container. No mater what host system you're using, have a consistent CLI experience.
 
 ## Setup
+
+TODO: Update instructions now that the image is part of my monorepo.
 
 ### Install
 

@@ -4,6 +4,8 @@ Proxy for speeding up 💩 networks.
 
 Network accelerator proxy using squid in a docker container.
 
+TODO: Update instructions now that the image is part of my monorepo.
+
 ## TLS
 
 <https://wiki.alpinelinux.org/wiki/Setting_up_Explicit_Squid_Proxy#SSL_interception_or_SSL_bumping>

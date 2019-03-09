@@ -1,5 +1,3 @@
-<!-- markdownlint-disable first-line-h1 -->
-
 [![Build Status](https://travis-ci.org/MaxMilton/docker-travis.svg?branch=master)](https://travis-ci.org/MaxMilton/docker-travis) [![Image version](https://images.microbadger.com/badges/version/maxmilton/travis.svg)](https://microbadger.com/images/maxmilton/travis) [![Image layers](https://images.microbadger.com/badges/image/maxmilton/travis.svg)](https://microbadger.com/images/maxmilton/travis)
 
 # Travis CLI via Docker
@@ -9,6 +7,8 @@ Run `travis` CLI commands without having to install Ruby and all its dependencie
 Originally based on the work [here](https://github.com/skandyla/docker-travis-cli).
 
 ## Usage
+
+TODO: Update instructions now that the image is part of my monorepo.
 
 ### 1. Get image
 
