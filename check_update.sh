@@ -1,6 +1,8 @@
 #!/bin/sh
 set -euo pipefail
 
+# https://github.com/philpep/dockerfiles/blob/master/check_update.sh
+
 if test -f /.dockerenv; then
   if test -x /sbin/apk; then
     apk --no-cache list -u | grep 'upgradable from' && exit 1

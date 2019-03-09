@@ -1,9 +1,9 @@
-# based on https://github.com/philpep/dockerfiles
+# https://github.com/philpep/dockerfiles/blob/master/Makefile
 
 DOCKERFILES=$(shell find * -type f -name Dockerfile)
 NAMES=$(subst /,\:,$(subst /Dockerfile,,$(DOCKERFILES)))
 REGISTRY?=docker.io
-IMAGES=$(addprefix $(REGISTRY)/,$(NAMES))
+IMAGES=$(addprefix $(subst :,\:,$(REGISTRY))/,$(NAMES))
 DEPENDS=.depends.mk
 MAKEFLAGS += -rR
 
@@ -29,20 +29,20 @@ help:
 	@echo "which rebuild and push only images having updates availables."
 
 clean:
-	rm -f alpine/3.8/rootfs.tar.xz $(DEPENDS)
+	rm -f alpine/3.9/rootfs.tar.xz $(DEPENDS)
 
-$(REGISTRY)/alpine\:3.8: alpine/3.8/rootfs.tar.xz
+$(subst :,\:,$(REGISTRY))/alpine\:3.9: alpine/3.9/rootfs.tar.xz
 
-alpine/3.8/rootfs.tar.xz:
+alpine/3.9/rootfs.tar.xz:
 	$(MAKE) $(REGISTRY)/alpine:builder
-	docker run --rm $(REGISTRY)/alpine:builder -r v3.8 -m http://dl-cdn.alpinelinux.org/alpine -b -t UTC \
+	docker run --rm $(REGISTRY)/alpine:builder -r v3.9 -m http://dl-cdn.alpinelinux.org/alpine -b -t UTC \
 		-p alpine-baselayout,busybox,alpine-keys,apk-tools,libc-utils -s > $@
 
 .PHONY: $(DEPENDS)
 $(DEPENDS): $(DOCKERFILES)
 	grep '^FROM \$$REGISTRY/' $(DOCKERFILES) | \
 		awk -F '/Dockerfile:FROM \\$$REGISTRY/' '{ print $$1 " " $$2 }' | \
-		sed 's@[:/]@\\:@g' | awk '{ print "$(REGISTRY)/" $$1 ": " "$(REGISTRY)/" $$2 }' > $@
+		sed 's@[:/]@\\:@g' | awk '{ print "$(subst :,\\:,$(REGISTRY))/" $$1 ": " "$(subst :,\\:,$(REGISTRY))/" $$2 }' > $@
 
 sinclude $(DEPENDS)
 
