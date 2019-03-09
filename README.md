@@ -4,6 +4,10 @@
 
 ## Overview
 
+FIXME: Set up new CI process
+
+FIXME: Make all badges link to new CI process
+
 <!-- prettier-ignore -->
 | Image | Badges | Description |
 | --- | --- | --- |
