@@ -16,11 +16,11 @@ docker run \
   --network host \
   --volume /dev/shm:/dev/shm \
   --volume /tmp/.X11-unix:/tmp/.X11-unix \
-  --volume "$HOME"/Development/0__data/keepass:/home/keepass:rw \
+  --volume "$HOME"/Projects/_data/keepass:/home/keepass:rw \
   --device /dev/dri \
-  --device /dev/video0 \
   --env DISPLAY=unix"$DISPLAY" \
   --group-add video \
   local/keepass $@
   # OR
+  #--device /dev/video0 \
   # maxmilton/keepass $@

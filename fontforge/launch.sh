@@ -18,7 +18,7 @@ docker run \
   --network host \
   --volume /dev/shm:/dev/shm \
   --volume /tmp/.X11-unix:/tmp/.X11-unix \
-  --volume "$HOME"/Development/0__data/fontforge:/home/fontforge:rw \
+  --volume "$HOME"/Projects/_data/fontforge:/home/fontforge:rw \
   --device /dev/dri \
   --env DISPLAY=unix"$DISPLAY" \
   --group-add video \
