@@ -1,6 +1,7 @@
-# Proxy for speeding up 💩 networks.
+# Net cache; proxy for speeding up 💩 networks
 
-FROM alpine:edge
+ARG REGISTRY
+FROM $REGISTRY/alpine:edge
 
 RUN set -xe \
   && apk add --no-cache \

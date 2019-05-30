@@ -1,10 +1,7 @@
-# Run the Chromium browser in a container
-#
-# Build or update image:
-#   docker build --no-cache -t local/chromium .
-#
+# Chromium
 
-FROM alpine:edge
+ARG REGISTRY
+FROM $REGISTRY/alpine:edge
 
 RUN set -xe \
   && addgroup -g 6006 -S chromium \

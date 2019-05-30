@@ -1,10 +1,7 @@
-# Run net tools in a container
-#
-# Build or update image:
-#   docker build --no-cache -t local/net-tools .
-#
+# Net tools
 
-FROM alpine:edge
+ARG REGISTRY
+FROM $REGISTRY/alpine:edge
 
 RUN set -xe \
   && apk add --no-cache \

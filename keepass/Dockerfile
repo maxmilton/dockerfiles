@@ -1,13 +1,7 @@
 # Run the KeePassX password manager in a container
-#
-# Build image:
-#   docker build -t local/keepass .
-#
-# Update:
-#   docker build --no-cache -t local/keepass .
-#
 
-FROM alpine:edge
+ARG REGISTRY
+FROM $REGISTRY/alpine:edge
 
 RUN set -xe \
   && addgroup -g 5339 -S keepass \

@@ -1,13 +1,7 @@
-# Run FontForge in a container
-#
-# Build image:
-#   docker build -t local/fontforge .
-#
-# Update:
-#   docker build --no-cache -t local/fontforge .
-#
+# FontForge
 
-FROM alpine:edge
+ARG REGISTRY
+FROM $REGISTRY/alpine:edge
 
 RUN set -xe \
   && addgroup -g 7027 -S fontforge \
