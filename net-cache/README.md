@@ -1,34 +1,50 @@
-# net-cache
+# 🥅 Net Cache
 
-Proxy for speeding up 💩 networks.
+Proxy for speeding up 💩 networks; network accelerator proxy using squid in a docker container.
 
-Network accelerator proxy using squid in a docker container.
 
-TODO: Update instructions now that the image is part of my monorepo.
+## Setup
 
-## TLS
+### Install
+
+Build locally (better if you want to customise the image but remember to rebuild periodically for updates) — [see main README](../README.md).
+
+Or use a prebuilt image (you'll need to edit the `launch.sh` script):
+
+```sh
+docker pull maxmilton/net-cache
+```
+
+### TLS
 
 <https://wiki.alpinelinux.org/wiki/Setting_up_Explicit_Squid_Proxy#SSL_interception_or_SSL_bumping>
 
-```sh
-# generate CA certificate
-openssl req -new -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -extensions v3_ca -keyout mitm.pem  -out mitm.pem
+1. Generate CA certificate:
 
-# generate der certificate for browsers
-openssl x509 -in mitm.pem -outform DER -out mitm.der
+   ```sh
+   openssl req -new -newkey rsa:2048 -sha256 -days 365 -nodes -x509 -extensions v3_ca -keyout mitm.pem  -out mitm.pem
+   ```
 
-chmod 400 mitm.pem mitm.der
+1. Generate der certificate for browsers:
 
-mkdir -p ~/.pki/nssdb
+   ```sh
+   openssl x509 -in mitm.pem -outform DER -out mitm.der
 
-# install certificate for browsers
-certutil -d sql:$HOME/.pki/nssdb -A -n 'localhost cert authority' -i mitm.der -t TCP,TCP,TCP
-```
+   chmod 400 mitm.pem mitm.der
+
+   mkdir -p ~/.pki/nssdb
+   ```
+
+1. Install certificate for browsers:
+
+   ```sh
+   certutil -d sql:$HOME/.pki/nssdb -A -n 'localhost cert authority' -i mitm.der -t TCP,TCP,TCP
+   ```
 
 ## Licence
 
-`dockerfiles` are all MIT licensed open source. See [LICENCE](https://github.com/MaxMilton/dockerfiles/blob/master/LICENCE).
+Released under the MIT licence; see [LICENCE](../LICENCE).
 
------
+---
 
 © 2019 [Max Milton](https://maxmilton.com)

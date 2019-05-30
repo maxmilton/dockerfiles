@@ -4,9 +4,8 @@
 
 ## Overview
 
-FIXME: Set up new CI process
-
-FIXME: Make all badges link to new CI process
+- FIXME: Set up new CI process
+- FIXME: Make all badges link to new CI process
 
 <!-- prettier-ignore -->
 | Image | Badges | Description |
@@ -22,6 +21,8 @@ FIXME: Make all badges link to new CI process
 
 > Tip: Use the `REGISTRY` env var to set the name prefix, e.g. `REGISTRY=local` would result in an image named `local/chromium`.
 
+TODO: Write better instructions.
+
 Make all images:
 
 ```sh
@@ -36,7 +37,7 @@ REGISTRY=local make chromium
 
 ## Licence
 
-Contents of this repository are MIT licensed open source. See [LICENCE](https://github.com/MaxMilton/dockerfiles/blob/master/LICENCE).
+Released under the MIT licence; see [LICENCE](./LICENCE).
 
 ---
 

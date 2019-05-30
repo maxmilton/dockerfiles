@@ -1,15 +1,25 @@
 [![Build Status](https://travis-ci.com/MaxMilton/docker-keepass.svg?branch=master)](https://travis-ci.com/MaxMilton/docker-keepass) [![Image version](https://images.microbadger.com/badges/version/maxmilton/keepass.svg)](https://microbadger.com/images/maxmilton/keepass) [![Image layers](https://images.microbadger.com/badges/image/maxmilton/keepass.svg)](https://microbadger.com/images/maxmilton/keepass)
 
-# KeePassX In A Container
+# 🔐 KeePass
 
-TODO: Write me.
+Run the KeePassX password manager from a docker container.
 
-TODO: Update instructions now that the image is part of my monorepo.
+## Setup
+
+### Install
+
+Build locally (better if you want to customise the image but remember to rebuild periodically for updates) — [see main README](../README.md).
+
+Or use a prebuilt image (you'll need to edit the `launch.sh` script):
+
+```sh
+docker pull maxmilton/keepass
+```
 
 ## Licence
 
-Released under the MIT licence; see [LICENCE](https://github.com/MaxMilton/docker-keepass/blob/master/LICENCE).
+Released under the MIT licence; see [LICENCE](../LICENCE).
 
------
+---
 
 © 2019 [Max Milton](https://maxmilton.com)
