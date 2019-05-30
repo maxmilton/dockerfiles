@@ -30,9 +30,15 @@ help:
 	@echo "which rebuild and push only images having updates availables."
 
 clean:
-	rm -f alpine/3.9/rootfs.tar.xz $(DEPENDS)
+	rm -f alpine/edge/rootfs.tar.xz alpine/3.9/rootfs.tar.xz $(DEPENDS)
 
+$(subst :,\:,$(REGISTRY))/alpine\:edge: alpine/edge/rootfs.tar.xz
 $(subst :,\:,$(REGISTRY))/alpine\:3.9: alpine/3.9/rootfs.tar.xz
+
+alpine/edge/rootfs.tar.xz:
+	$(MAKE) $(REGISTRY)/alpine:builder
+	docker run --rm $(REGISTRY)/alpine:builder -r edge -m http://dl-cdn.alpinelinux.org/alpine -b -t UTC \
+		-p alpine-baselayout,busybox,alpine-keys,apk-tools,libc-utils -s > $@
 
 alpine/3.9/rootfs.tar.xz:
 	$(MAKE) $(REGISTRY)/alpine:builder
