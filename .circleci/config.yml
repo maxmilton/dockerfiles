@@ -1,1 +1,25 @@
-# TODO
+# FIXME: Set up CI process using the Makefile tasks
+# https://circleci.com/blog/using-circleci-workflows-to-replicate-docker-hub-automated-builds/
+
+version: 2
+jobs:
+  build:
+    environment:
+      IMAGE_NAME: jonathancardoso/building-on-ci
+    docker:
+      - image: circleci/buildpack-deps:stretch
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Build Docker image
+          command: docker build -t $IMAGE_NAME:latest .
+
+workflows:
+  version: 2
+  build-master:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
