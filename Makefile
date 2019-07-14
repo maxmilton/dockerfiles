@@ -24,25 +24,25 @@ help:
 	@echo "make run nginx        ; build and run nginx image (for testing)"
 	@echo "make exec nginx       ; build and start interactive shell in nginx image (for debugging)"
 	@echo "make checkrebuild all ; build and check if image has update availables (using apk or apt-get)"
-	@echo "                        and rebuild with --no-cache is image has updates"
+	@echo "                        and rebuild with --no-cache if image has updates"
 	@echo ""
 	@echo "You can chain actions, typically in CI environment you want make checkrebuild push all"
 	@echo "which rebuild and push only images having updates availables."
 
 clean:
-	rm -f alpine/edge/rootfs.tar.xz alpine/3.9/rootfs.tar.xz $(DEPENDS)
+	rm -f alpine/edge/rootfs.tar.xz alpine/3.10/rootfs.tar.xz $(DEPENDS)
 
 $(subst :,\:,$(REGISTRY))/alpine\:edge: alpine/edge/rootfs.tar.xz
-$(subst :,\:,$(REGISTRY))/alpine\:3.9: alpine/3.9/rootfs.tar.xz
+$(subst :,\:,$(REGISTRY))/alpine\:3.10: alpine/3.10/rootfs.tar.xz
 
 alpine/edge/rootfs.tar.xz:
 	$(MAKE) $(REGISTRY)/alpine:builder
 	docker run --rm $(REGISTRY)/alpine:builder -r edge -m http://dl-cdn.alpinelinux.org/alpine -b -t UTC \
 		-p alpine-baselayout,busybox,alpine-keys,apk-tools,libc-utils -s > $@
 
-alpine/3.9/rootfs.tar.xz:
+alpine/3.10/rootfs.tar.xz:
 	$(MAKE) $(REGISTRY)/alpine:builder
-	docker run --rm $(REGISTRY)/alpine:builder -r v3.9 -m http://dl-cdn.alpinelinux.org/alpine -b -t UTC \
+	docker run --rm $(REGISTRY)/alpine:builder -r v3.10 -m http://dl-cdn.alpinelinux.org/alpine -b -t UTC \
 		-p alpine-baselayout,busybox,alpine-keys,apk-tools,libc-utils -s > $@
 
 .PHONY: $(DEPENDS)
