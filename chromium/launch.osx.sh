@@ -1,6 +1,5 @@
 #!/bin/bash
 set -euo pipefail
-IFS=$'\n\t'
 
 # get system IP address
 IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
@@ -36,5 +35,3 @@ trap "/opt/X11/bin/xhost - $IP; kill 0" EXIT
   --security-opt no-new-privileges \
   --security-opt seccomp="$DIR"/seccomp.json \
   local/chromium "$@"
-  # OR
-  # maxmilton/chromium "$@"
