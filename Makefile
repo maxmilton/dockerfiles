@@ -8,7 +8,7 @@ IMAGES=$(addprefix $(subst :,\:,$(REGISTRY))/,$(NAMES))
 DEPENDS=.depends.mk
 MAKEFLAGS += -rR
 
-.PHONY: all clean push pull run exec check checkrebuild $(NAMES) $(IMAGES)
+.PHONY: all clean push pull run exec check checkrebuild pull-base ci $(NAMES) $(IMAGES)
 
 all: $(NAMES)
 
@@ -25,15 +25,26 @@ help:
 	@echo "make exec nginx       ; build and start interactive shell in nginx image (for debugging)"
 	@echo "make checkrebuild all ; build and check if image has update availables (using apk or apt-get)"
 	@echo "                        and rebuild with --no-cache if image has updates"
+	@echo "make pull-base        ; pull base images from docker hub used to bootstrap other images"
+	@echo "make ci               ; alias to make pull-base checkrebuild push all"
 	@echo ""
 	@echo "You can chain actions, typically in CI environment you want make checkrebuild push all"
 	@echo "which rebuild and push only images having updates availables."
 
 clean:
-	rm -f alpine/edge/rootfs.tar.xz alpine/3.10/rootfs.tar.xz $(DEPENDS)
+	rm -f alpine/edge/rootfs.tar.xz
+	rm -f alpine/3.10/rootfs.tar.xz
+	rm -f $(DEPENDS)
 
 $(subst :,\:,$(REGISTRY))/alpine\:edge: alpine/edge/rootfs.tar.xz
 $(subst :,\:,$(REGISTRY))/alpine\:3.10: alpine/3.10/rootfs.tar.xz
+
+pull-base:
+	# Used by alpine:builder
+	docker pull alpine:3.10
+
+ci:
+	$(MAKE) pull-base checkrebuild push all
 
 alpine/edge/rootfs.tar.xz:
 	$(MAKE) $(REGISTRY)/alpine:builder
