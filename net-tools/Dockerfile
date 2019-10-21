@@ -5,6 +5,8 @@ FROM $REGISTRY/alpine:edge
 
 RUN set -xe \
   && apk add --no-cache \
+    aria2 \
+    aria2-doc \
     bash \
     bash-completion \
     bash-doc \
