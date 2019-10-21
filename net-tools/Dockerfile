@@ -12,6 +12,9 @@ RUN set -xe \
     coreutils-doc \
     curl \
     curl-doc \
+    darkhttpd \
+    darkstat \
+    darkstat-doc \
     drill \
     grep \
     grep-doc \
@@ -35,6 +38,8 @@ RUN set -xe \
     ntop-doc \
     openssh-client \
     openssh-doc \
+    rsync \
+    rsync-doc \
     tcpdump \
     tcpdump-doc \
     whois \
