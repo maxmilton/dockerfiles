@@ -17,7 +17,7 @@ if test -z "$1"; then
   exit 64
 fi
 if docker run --rm --entrypoint sh -u root -v $(readlink -f $0):/check_update.sh $1 /check_update.sh; then
-  echo "\033[0;32m$1 is up-to-date\033[0m"
+  echo -e "\e[0;32m$1 is up-to-date\e[0m"
 else
-  echo "\033[0;31m$1 need update\033[0m" && exit 1
+  echo -e "\e[0;31m$1 needs update\e[0m" && exit 1
 fi
