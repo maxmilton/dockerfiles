@@ -1,7 +1,6 @@
 # 🥅 Net Cache
 
-Proxy for speeding up 💩 networks; network accelerator proxy using squid in a docker container.
-
+Proxy for speeding up 💩 networks and reducing data use. A network accelerator proxy using squid in a docker container.
 
 ## Setup
 
@@ -9,7 +8,7 @@ Proxy for speeding up 💩 networks; network accelerator proxy using squid in a 
 
 Build locally (better if you want to customise the image but remember to rebuild periodically for updates) — [see main README](../README.md).
 
-Or use a prebuilt image (you'll need to edit the `launch.sh` script):
+Or use a prebuilt image (you'll need to edit the `start.sh` script):
 
 ```sh
 docker pull maxmilton/net-cache

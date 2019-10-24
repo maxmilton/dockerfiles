@@ -1,4 +1,4 @@
-# Net cache; proxy for speeding up 💩 networks
+# Net cache; proxy for speeding up 💩 networks and reducing data use
 
 ARG REGISTRY
 FROM $REGISTRY/alpine:edge
