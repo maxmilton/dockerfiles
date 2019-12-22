@@ -13,6 +13,7 @@ RUN set -xe \
   && apk add --no-cache \
     chromium \
     libcanberra-gtk3 \
+    unifont \
   && cp /usr/share/zoneinfo/UTC /etc/localtime \
   && echo "UTC" > /etc/timezone \
   && apk del .system-deps
