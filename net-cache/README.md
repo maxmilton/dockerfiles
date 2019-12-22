@@ -40,6 +40,10 @@ docker pull maxmilton/net-cache
    certutil -d sql:$HOME/.pki/nssdb -A -n 'localhost cert authority' -i mitm.der -t TCP,TCP,TCP
    ```
 
+### Debugging
+
+`squidclient mgr:info`
+
 ## Licence
 
 Released under the MIT licence; see [LICENCE](../LICENCE).
