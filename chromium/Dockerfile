@@ -21,8 +21,8 @@ RUN set -xe \
 # override default launcher
 COPY chromium-launcher.sh /usr/lib/chromium/chromium-launcher.sh
 
-# custom chromium flags
-COPY default.conf /etc/chromium/default.conf
+# custom chromium CLI options
+COPY flags.conf /etc/chromium/default.conf
 
 # custom font config
 COPY local.conf /etc/fonts/local.conf
