@@ -50,4 +50,4 @@ Released under the MIT licence; see [LICENCE](../LICENCE).
 
 ---
 
-© 2019 [Max Milton](https://maxmilton.com)
+© 2020 [Max Milton](https://maxmilton.com)

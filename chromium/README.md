@@ -4,7 +4,7 @@
 
 Launch an ephemeral chromium instance in a Docker container. Useful for times you need to quickly launch a browser that's completely fresh, e.g. web page testing or visiting suspect sites. By default, it's likely this will only run on a Linux desktop with X11 compatibility (e.g. Wayland + `xwayland`).
 
-Based on the [amazing work done by jessfraz](https://github.com/jessfraz/dockerfiles/blob/master/chromium/Dockerfile) but with much customisation.
+Based on the [amazing work done by jessfraz](https://github.com/jessfraz/dockerfiles/blob/master/chromium/Dockerfile) but with much customisation. Also uses [her immaculately tweaked seccomp profile](https://github.com/jessfraz/dotfiles/blob/master/etc/docker/seccomp/chrome.json).
 
 Uses an opinionated [default configuration](https://github.com/MaxMilton/docker-chromium/blob/master/default.conf) for additional performance and security.
 
@@ -98,4 +98,4 @@ Released under the MIT licence; see [LICENCE](../LICENCE).
 
 ---
 
-© 2019 [Max Milton](https://maxmilton.com)
+© 2020 [Max Milton](https://maxmilton.com)
