@@ -17,6 +17,7 @@ RUN set -xe \
     darkhttpd \
     darkstat \
     darkstat-doc \
+    docs \
     drill \
     grep \
     grep-doc \
@@ -27,17 +28,14 @@ RUN set -xe \
     jq-doc \
     less \
     less-doc \
-    man \
     man-pages \
-    mdocml-apropos \
+    mandoc-apropos \
     mtr \
     nmap \
     nmap-doc \
     nmap-ncat \
     nmap-nping \
     nmap-scripts \
-    ntop \
-    ntop-doc \
     openssh-client \
     openssh-doc \
     rsync \
