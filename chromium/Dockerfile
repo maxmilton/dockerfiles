@@ -14,6 +14,10 @@ RUN set -xe \
     chromium \
     libcanberra-gtk3 \
     unifont \
+    mesa-gl \
+    mesa-gles \
+    xf86-video-amdgpu \
+    xf86-video-intel \
   && cp /usr/share/zoneinfo/UTC /etc/localtime \
   && echo "UTC" > /etc/timezone \
   && apk del .system-deps
