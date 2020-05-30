@@ -28,7 +28,7 @@ trap "/opt/X11/bin/xhost - $IP; kill 0" EXIT
   --tmpfs /tmp:rw,nosuid,nodev \
   --tmpfs /data:rw,noexec,nosuid,nodev,uid=6006,gid=6006,mode=0700 \
   --tmpfs /home/chromium:rw,nosuid,nodev,uid=6006,gid=6006,mode=0700,size=4m \
-  --volume /tmp/.X11-unix:/tmp/.X11-unix \
+  --volume /tmp/.X11-unix:/tmp/.X11-unix:ro \
   --env DISPLAY="$IP":0 \
   --cap-drop=all \
   --cap-add SYS_ADMIN \

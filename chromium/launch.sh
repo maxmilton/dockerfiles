@@ -25,8 +25,8 @@ docker run \
   --tmpfs /tmp:rw,nosuid,nodev \
   --tmpfs /data:rw,noexec,nosuid,nodev,uid=6006,gid=6006,mode=0700 \
   --tmpfs /home/chromium:rw,nosuid,nodev,uid=6006,gid=6006,mode=0700,size=4m \
-  --volume /dev/shm:/dev/shm \
-  --volume /tmp/.X11-unix:/tmp/.X11-unix \
+  --volume /tmp/.X11-unix:/tmp/.X11-unix:ro \
+  --shm-size=256m \
   --device /dev/dri \
   --device /dev/snd \
   --env DISPLAY=unix"$DISPLAY" \
@@ -50,12 +50,12 @@ docker run \
 #   --tmpfs /tmp:rw,nosuid,nodev \
 #   --tmpfs /data:rw,noexec,nosuid,nodev,uid=6006,gid=6006,mode=0700 \
 #   --tmpfs /home/chromium:rw,nosuid,nodev,uid=6006,gid=6006,mode=0700,size=4m \
-#   --volume /dev/shm:/dev/shm \
 #   --volume /etc/timezone:/etc/timezone:ro \
 #   --volume /etc/localtime:/etc/localtime:ro \
-#   --volume /tmp/.X11-unix:/tmp/.X11-unix \
-#   --volume "$HOME"/Downloads:/home/chromium/Downloads \
-#   --volume "$HOME"/.config/chromium/:/data \
+#   --volume /tmp/.X11-unix:/tmp/.X11-unix:ro \
+#   --volume "$HOME"/Downloads:/home/chromium/Downloads:rw \
+#   --volume "$HOME"/.config/chromium/:/data:rw \
+#   --shm-size=256m \
 #   --device /dev/snd \
 #   --device /dev/dri \
 #   --env DISPLAY=unix"$DISPLAY" \
