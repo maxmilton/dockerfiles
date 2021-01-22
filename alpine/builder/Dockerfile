@@ -1,4 +1,4 @@
-FROM alpine:3.12
+FROM alpine:3.13
 COPY mkimage-alpine.bash /
 RUN apk add --no-cache bash tzdata xz
 ENTRYPOINT ["bash", "/mkimage-alpine.bash"]
