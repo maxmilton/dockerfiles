@@ -4,7 +4,7 @@
 # FROM docker:19.03.6 as static-docker-source
 
 ARG REGISTRY
-FROM $REGISTRY/alpine:3.12
+FROM $REGISTRY/alpine:3.13
 
 ENV CLOUD_SDK_VERSION=303.0.0
 ENV CLOUDSDK_PYTHON=python3

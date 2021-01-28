@@ -33,15 +33,15 @@ help:
 
 clean:
 	rm -f alpine/edge/rootfs.tar.xz
-	rm -f alpine/3.12/rootfs.tar.xz
+	rm -f alpine/3.13/rootfs.tar.xz
 	rm -f $(DEPENDS)
 
 $(subst :,\:,$(REGISTRY))/alpine\:edge: alpine/edge/rootfs.tar.xz
-$(subst :,\:,$(REGISTRY))/alpine\:3.12: alpine/3.12/rootfs.tar.xz
+$(subst :,\:,$(REGISTRY))/alpine\:3.13: alpine/3.13/rootfs.tar.xz
 
 pull-base:
 	# Used by alpine:builder
-	docker pull alpine:3.12
+	docker pull alpine:3.13
 
 ci:
 	$(MAKE) pull-base checkrebuild push all
@@ -51,9 +51,9 @@ alpine/edge/rootfs.tar.xz:
 	docker run --rm $(REGISTRY)/alpine:builder -r edge -m http://dl-cdn.alpinelinux.org/alpine -b -t UTC \
 		-p alpine-baselayout,busybox,alpine-keys,apk-tools,libc-utils -s > $@
 
-alpine/3.12/rootfs.tar.xz:
+alpine/3.13/rootfs.tar.xz:
 	$(MAKE) $(REGISTRY)/alpine:builder
-	docker run --rm $(REGISTRY)/alpine:builder -r v3.12 -m http://dl-cdn.alpinelinux.org/alpine -b -t UTC \
+	docker run --rm $(REGISTRY)/alpine:builder -r v3.13 -m http://dl-cdn.alpinelinux.org/alpine -b -t UTC \
 		-p alpine-baselayout,busybox,alpine-keys,apk-tools,libc-utils -s > $@
 
 .PHONY: $(DEPENDS)

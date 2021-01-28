@@ -11,7 +11,7 @@
 <!-- prettier-ignore -->
 | Image | Badges | Description |
 | --- | --- | --- |
-| alpine:3.12 | x | x |
+| alpine:3.13 | x | x |
 | alpine:edge | x | x |
 | chromium | [![Build Status](https://travis-ci.org/MaxMilton/docker-chromium.svg?branch=master)](https://travis-ci.org/MaxMilton/docker-chromium) [![Image version](https://images.microbadger.com/badges/version/maxmilton/chromium.svg)](https://microbadger.com/images/maxmilton/chromium) [![Image layers](https://images.microbadger.com/badges/image/maxmilton/chromium.svg)](https://microbadger.com/images/maxmilton/chromium) | Ephemeral Chromium for testing. |
 | gcloud | x | x |
