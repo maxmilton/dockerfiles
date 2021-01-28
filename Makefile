@@ -44,7 +44,8 @@ pull-base:
 	docker pull alpine:3.13
 
 ci:
-	$(MAKE) pull-base checkrebuild push all
+	# $(MAKE) pull-base checkrebuild push all
+	$(MAKE) pull-base checkrebuild all
 
 alpine/edge/rootfs.tar.xz:
 	$(MAKE) $(REGISTRY)/alpine:builder
