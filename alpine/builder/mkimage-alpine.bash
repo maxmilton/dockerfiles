@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Based on https://github.com/philpep/dockerfiles/blob/master/alpine/builder/mkimage-alpine.bash
-# Which is a modified version of https://github.com/docker/docker/blob/master/contrib/mkimage-alpine.sh
+# Which is a modified version of https://github.com/gliderlabs/docker-alpine/blob/master/builder/scripts/mkimage-alpine.bash
+# Which itself is a modified version of https://github.com/docker/docker/blob/master/contrib/mkimage-alpine.sh
 
 declare REL="${REL:-edge}"
 declare MIRROR="${MIRROR:-http://dl-cdn.alpinelinux.org/alpine}"
@@ -49,8 +50,7 @@ build() {
         del --arch $arch --purge .timezone
     }
     rm -f "$rootfs/var/cache/apk"/*
-    # https://alpinelinux.org/posts/Docker-image-vulnerability-CVE-2019-5021.html
-    [[ "$ENABLE_ROOT_PASSWD" ]] || \
+    [[ "$DISABLE_ROOT_PASSWD" ]] && \
       sed -ie 's/^root::/root:!:/' "$rootfs/etc/shadow"
   } >&2
 
@@ -64,7 +64,7 @@ build() {
 }
 
 main() {
-  while getopts "hr:m:t:sEecxp:ba:" opt; do
+  while getopts "hr:m:t:sEecdp:ba:" opt; do
     case $opt in
       r) REL="$OPTARG";;
       m) MIRROR="${OPTARG%/}";;
@@ -75,7 +75,7 @@ main() {
       c) ADD_APK_SCRIPT=1;;
       p) PACKAGES="$OPTARG";;
       b) ADD_BASELAYOUT=1;;
-      x) ENABLE_ROOT_PASSWD=1;;
+      d) DISABLE_ROOT_PASSWD=1;;
       a) ARCH="$OPTARG";;
       *) usage;;
     esac
