@@ -45,7 +45,7 @@ pull-base:
 
 ci:
 	# $(MAKE) pull-base checkrebuild push all
-	$(MAKE) pull-base checkrebuild all
+	$(MAKE) pull-base all
 
 alpine/edge/rootfs.tar.xz:
 	$(MAKE) $(REGISTRY)/alpine:builder
