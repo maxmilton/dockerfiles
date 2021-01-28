@@ -18,6 +18,9 @@ if test -z "$1"; then
 fi
 if docker run --rm --entrypoint sh -u root -v $(readlink -f $0):/check_update.sh $1 /check_update.sh; then
   echo -e "\e[0;32m$1 is up-to-date\e[0m"
+elif expr match "$1" ".*alpine:builder\$"; then
+  # skip over alpine:builder since it uses a base image we don't control
+  exit 0
 else
   echo -e "\e[0;31m$1 needs update\e[0m" && exit 1
 fi
