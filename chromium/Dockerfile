@@ -1,7 +1,7 @@
-# Chromium
+# Chromium Browser
 
 ARG REGISTRY
-FROM $REGISTRY/alpine:edge
+FROM $REGISTRY/alpine:3.13
 
 RUN set -xe \
   && addgroup -g 6006 -S chromium \

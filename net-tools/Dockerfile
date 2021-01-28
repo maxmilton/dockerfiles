@@ -1,7 +1,7 @@
 # Net tools
 
 ARG REGISTRY
-FROM $REGISTRY/alpine:edge
+FROM $REGISTRY/alpine:3.13
 
 RUN set -xe \
   && apk add --no-cache \
