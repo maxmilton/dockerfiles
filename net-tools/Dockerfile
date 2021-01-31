@@ -25,6 +25,7 @@ RUN set -xe \
     nmap-ncat \
     nmap-nping \
     nmap-scripts \
+    nq \
     openssh-client \
     rsync \
     tcpdump \
