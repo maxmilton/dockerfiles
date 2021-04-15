@@ -6,7 +6,8 @@
 ARG REGISTRY
 FROM $REGISTRY/alpine:3.13
 
-ENV CLOUD_SDK_VERSION=325.0.0
+# https://cloud.google.com/sdk/docs/release-notes
+ENV CLOUD_SDK_VERSION=336.0.0
 ENV CLOUDSDK_PYTHON=python3
 
 ENV PATH /google-cloud-sdk/bin:$PATH
