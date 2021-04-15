@@ -34,4 +34,5 @@ RUN set -xe \
   #   beta \
   #   kubectl
 
+WORKDIR /data
 VOLUME ["/root/.config"]
