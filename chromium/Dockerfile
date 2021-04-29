@@ -14,6 +14,10 @@ RUN set -xe \
     chromium \
     libcanberra-gtk3 \
     unifont \
+    # font-noto-all \
+    # font-noto-cjk \
+    # font-noto-emoji \
+    # mesa-dri-intel \
     # mesa-gl \
     # mesa-gles \
     # xf86-video-amdgpu \
