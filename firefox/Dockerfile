@@ -24,7 +24,7 @@ RUN set -xe \
   && echo 'pref("browser.tabs.remote.autostart", false);' >> /etc/firefox/syspref.js
 
 # custom fontconfig options
-COPY ../chromium/local.conf /etc/fonts/local.conf
+COPY local.conf /etc/fonts/local.conf
 
 # run as non privileged user
 USER firefox
