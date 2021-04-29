@@ -8,8 +8,7 @@ set -euo pipefail
 set -o errtrace
 trap 'xhost -local:$USER' EXIT
 
-# directory of this script
-DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd -P)
 
 # allow X11 forwarding permission
 xhost +local:"$USER"
@@ -36,9 +35,9 @@ docker run \
   --device /dev/dri \
   --env DISPLAY=unix"$DISPLAY" \
   --env PULSE_SERVER=unix:"$XDG_RUNTIME_DIR"/pulse/native \
-  --group-add video \
   --group-add "$(getent group audio | cut -d: -f3)" \
+  --group-add video \
   --cap-drop=all \
   --security-opt no-new-privileges \
-  --security-opt seccomp="$DIR"/seccomp.json \
-  local/chromium --alsa-output-device=hw:0,3 about:blank
+  --security-opt seccomp="$script_dir"/seccomp.json \
+  local/chromium --alsa-output-device=hw:0,0 about:blank
