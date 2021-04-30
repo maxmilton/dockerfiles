@@ -12,8 +12,10 @@ RUN set -xe \
     ca-certificates \
     firefox \
     hicolor-icon-theme \
+    mesa-egl \
     mesa-gl \
     mesa-gles \
+    pciutils-libs \
     unifont \
     xf86-video-amdgpu \
     xf86-video-intel
@@ -21,13 +23,16 @@ RUN set -xe \
     # font-noto-cjk \
     # font-noto-emoji \
 
-# Custom options
+# custom options
 RUN set -xe \
-  && mkdir /etc/firefox \
-  && echo '\
-pref("browser.tabs.remote.autostart", false);\
-pref("datareporting.policy.firstRunURL", "");\
-' >> /etc/firefox/syspref.js
+  && echo -e '\n\
+// Disable things that dont make sense in an ephemeral instance\n\
+pref("startup.homepage_welcome_url", "");\n\
+pref("trailhead.firstrun.didSeeAboutWelcome", true);\n\
+pref("datareporting.policy.dataSubmissionPolicyBypassNotification", true);\n\
+// Disable things that dont respect user privacy\n\
+pref("datareporting.policy.dataSubmissionEnabled", false);\n\
+' >> /usr/lib/firefox/browser/defaults/preferences/firefox-branding.js
 
 # custom fontconfig options
 COPY local.conf /etc/fonts/local.conf
@@ -36,4 +41,4 @@ COPY local.conf /etc/fonts/local.conf
 USER firefox
 
 ENTRYPOINT ["/usr/bin/firefox"]
-CMD ["about:blank"]
+CMD ["--profile", "/data", "about:blank"]
