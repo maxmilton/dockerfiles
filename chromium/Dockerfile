@@ -1,4 +1,5 @@
 # Chromium Browser
+# NOTE: See default.conf for all custom Chromium settings
 
 ARG REGISTRY
 FROM $REGISTRY/alpine:3.13
@@ -13,26 +14,26 @@ RUN set -xe \
   && apk add --no-cache \
     chromium \
     libcanberra-gtk3 \
+    mesa-egl \
+    mesa-gl \
+    mesa-gles \
     unifont \
+    xf86-video-amdgpu \
+    xf86-video-intel \
     # font-noto-all \
     # font-noto-cjk \
     # font-noto-emoji \
-    # mesa-dri-intel \
-    # mesa-gl \
-    # mesa-gles \
-    # xf86-video-amdgpu \
-    # xf86-video-intel \
   && cp /usr/share/zoneinfo/UTC /etc/localtime \
   && echo "UTC" > /etc/timezone \
   && apk del .system-deps
 
-# override default launcher
+# custom launcher script
 COPY chromium-launcher.sh /usr/lib/chromium/chromium-launcher.sh
 
-# custom chromium CLI options
-COPY flags.conf /etc/chromium/default.conf
+# custom options
+COPY default.conf /etc/chromium/default.conf
 
-# custom font config
+# custom fontconfig options
 COPY local.conf /etc/fonts/local.conf
 
 # run as non privileged user

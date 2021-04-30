@@ -14,6 +14,7 @@ RUN set -xe \
   && apk add --no-cache \
     chromium \
     libcanberra-gtk3 \
+    mesa-egl \
     mesa-gl \
     mesa-gles \
     unifont \
