@@ -1,4 +1,4 @@
-# https://github.com/philpep/dockerfiles/blob/master/Makefile
+# Based on https://github.com/philpep/dockerfiles/blob/a2c3a858cb08427149875d40e085f701e62e160d/Makefile
 
 DOCKERFILES=$(shell find * -type f -name Dockerfile)
 NAMES=$(subst /,\:,$(subst /Dockerfile,,$(DOCKERFILES)))
