@@ -29,9 +29,10 @@
 
 ## How to use
 
+<!-- TODO: Write better instructions. -->
+
 > Tip: Use the `REGISTRY` env var to set the name prefix, e.g. `REGISTRY=local` would result in an image named `local/chromium`.
 
-TODO: Write better instructions.
 
 Make all images:
 
