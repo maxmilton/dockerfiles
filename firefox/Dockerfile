@@ -3,6 +3,8 @@
 ARG REGISTRY
 FROM $REGISTRY/alpine:3.13
 
+LABEL org.opencontainers.image.source=https://github.com/maxmilton/dockerfiles
+
 RUN set -xe \
   && addgroup -g 3153 -S firefox \
   && adduser -D -u 3153 -S -h /home/firefox -s /sbin/nologin -G firefox firefox \

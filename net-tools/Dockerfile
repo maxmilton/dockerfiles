@@ -3,6 +3,8 @@
 ARG REGISTRY
 FROM $REGISTRY/alpine:3.13
 
+LABEL org.opencontainers.image.source=https://github.com/maxmilton/dockerfiles
+
 RUN set -xe \
   && apk add --no-cache \
     aria2 \

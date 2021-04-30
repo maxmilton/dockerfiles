@@ -6,6 +6,8 @@
 ARG REGISTRY
 FROM $REGISTRY/alpine:3.13
 
+LABEL org.opencontainers.image.source=https://github.com/maxmilton/dockerfiles
+
 # https://cloud.google.com/sdk/docs/release-notes
 ENV CLOUD_SDK_VERSION=336.0.0
 ENV CLOUDSDK_PYTHON=python3

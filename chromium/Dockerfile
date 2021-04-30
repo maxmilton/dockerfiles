@@ -4,6 +4,8 @@
 ARG REGISTRY
 FROM $REGISTRY/alpine:3.13
 
+LABEL org.opencontainers.image.source=https://github.com/maxmilton/dockerfiles
+
 RUN set -xe \
   && addgroup -g 6006 -S chromium \
   && adduser -D -u 6006 -S -h /home/chromium -s /sbin/nologin -G chromium chromium \

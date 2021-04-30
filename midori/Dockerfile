@@ -3,6 +3,8 @@
 ARG REGISTRY
 FROM $REGISTRY/alpine:edge
 
+LABEL org.opencontainers.image.source=https://github.com/maxmilton/dockerfiles
+
 # RUN set -xe \
 #   && addgroup -g 31651 -S midori \
 #   && adduser -D -u 31651 -S -h /home/midori -s /sbin/nologin -G midori midori \
