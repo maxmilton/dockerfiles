@@ -16,12 +16,18 @@ RUN set -xe \
     mesa-gles \
     unifont \
     xf86-video-amdgpu \
-    xf86-video-intel \
+    xf86-video-intel
     # font-noto-all \
     # font-noto-cjk \
     # font-noto-emoji \
+
+# Custom options
+RUN set -xe \
   && mkdir /etc/firefox \
-  && echo 'pref("browser.tabs.remote.autostart", false);' >> /etc/firefox/syspref.js
+  && echo '\
+pref("browser.tabs.remote.autostart", false);\
+pref("datareporting.policy.firstRunURL", "");\
+' >> /etc/firefox/syspref.js
 
 # custom fontconfig options
 COPY local.conf /etc/fonts/local.conf
