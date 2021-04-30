@@ -14,37 +14,13 @@ jobs:
     permissions:
       packages: write
       contents: read
-    env:
-      REGISTRY: ghcr.io
     steps:
       - uses: actions/checkout@v2
-      - run: make clean pull-base
-      - run: make alpine/edge/rootfs.tar.xz
-      - run: make alpine/3.13/rootfs.tar.xz
-      - name: Login to ghcr.io
-        uses: docker/login-action@v1
+      - uses: docker/login-action@v1
         with:
-          registry: ${{ env.REGISTRY }}
+          registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and push alpine:edge
-        uses: docker/build-push-action@v2
-        with:
-          context: alpine/edge
-          push: true
-          tags: maxmilton/dockerfiles/alpine:edge
-          labels: ${{ steps.meta.outputs.labels }}
-      - name: Build and push alpine:3.13
-        uses: docker/build-push-action@v2
-        with:
-          context: alpine/3.13
-          push: true
-          tags: maxmilton/dockerfiles/alpine:3.13
-          labels: ${{ steps.meta.outputs.labels }}
-      - name: Build and push chromium
-        uses: docker/build-push-action@v2
-        with:
-          context: chromium
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+      - run: make ci
+        env:
+          REGISTRY: ghcr.io/maxmilton
