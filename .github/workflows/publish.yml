@@ -1,3 +1,7 @@
+# FIXME: check_update.sh results in images only being published when there are
+# apk package updates but we ALSO need publish when files within a build
+# context have changed
+
 name: publish
 on:
   workflow_run:
