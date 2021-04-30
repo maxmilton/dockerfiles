@@ -8,3 +8,5 @@ jobs:
       - run: make ci
         env:
           REGISTRY: ci
+      - name: Smoke test alpine:edge image
+        run: docker run --rm ci/alpine:edge echo 'OK'
