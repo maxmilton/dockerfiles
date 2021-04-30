@@ -12,19 +12,19 @@ jobs:
         run: docker run --rm ci/alpine:edge echo 'OK'
       - name: Smoke test alpine:3.13
         run: docker run --rm ci/alpine:3.13 echo 'OK'
-      - name: Smoke test chromium:latest
+      - name: Smoke test chromium
         run: docker run --rm ci/chromium:latest --version
-      - name: Smoke test chromium-test:latest
+      - name: Smoke test chromium-test
         run: docker run --rm ci/chromium-test:latest --version
-      - name: Smoke test firefox:latest
+      - name: Smoke test firefox
         run: docker run --rm ci/firefox:latest --version
-      - name: Smoke test gcloud:latest
+      - name: Smoke test gcloud
         run: docker run --rm ci/gcloud:latest gcloud --version
-      - name: Smoke test midori:latest
+      - name: Smoke test midori
         run: docker run --rm ci/midori:latest --version
-      - name: Smoke test net-block:latest
+      - name: Smoke test net-block
         run: docker run --rm ci/net-block:latest /usr/sbin/dnsmasq --version
-      - name: Smoke test net-cache:latest
+      - name: Smoke test net-cache
         run: docker run --rm ci/net-cache:latest /usr/sbin/squid --version
-      - name: Smoke test net-tools:latest
+      - name: Smoke test net-tools
         run: docker run --rm ci/net-tools:latest /usr/bin/nmap --version
