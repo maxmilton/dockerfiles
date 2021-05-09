@@ -6,12 +6,12 @@ Proxy for speeding up 💩 networks and reducing data use. A network accelerator
 
 ### Install
 
-Build locally (better if you want to customise the image but remember to rebuild periodically for updates) — [see main README](../README.md).
+Build locally (better if you want to customise the image but remember to rebuild periodically for updates) — [see monorepo README](https://github.com/MaxMilton/dockerfiles/blob/master/README.md).
 
 Or use a prebuilt image (you'll need to edit the `start.sh` script):
 
 ```sh
-docker pull maxmilton/net-cache
+docker pull ghcr.io/maxmilton/net-cache
 ```
 
 ### TLS
@@ -50,4 +50,4 @@ MIT; see [LICENSE](https://github.com/MaxMilton/dockerfiles/blob/master/LICENSE)
 
 ---
 
-© 2020 [Max Milton](https://maxmilton.com)
+© 2021 [Max Milton](https://maxmilton.com)
