@@ -5,6 +5,7 @@ ARG REGISTRY
 FROM $REGISTRY/alpine:3.13
 
 LABEL org.opencontainers.image.source=https://github.com/maxmilton/dockerfiles
+LABEL org.opencontainers.image.documentation=https://github.com/MaxMilton/dockerfiles/blob/master/chromium/README.md
 
 RUN set -xe \
   && addgroup -g 6006 -S chromium \
