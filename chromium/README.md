@@ -92,9 +92,9 @@ The differences are:
 
 1. `--volume /dev/shm:/dev/shm` is necessary because Docker currently only allocates 64 MB of memory to /dev/shm but chromium needs a lot more to run without crashing. On some systems it my not be required. [More info](https://github.com/c0b/chrome-in-docker/issues/1).
 
-## Licence
+## License
 
-Released under the MIT licence; see [LICENCE](../LICENCE).
+MIT; see [LICENSE](https://github.com/MaxMilton/dockerfiles/blob/master/LICENSE).
 
 ---
 

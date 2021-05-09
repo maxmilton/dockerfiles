@@ -44,9 +44,9 @@ docker pull maxmilton/net-cache
 
 `squidclient mgr:info`
 
-## Licence
+## License
 
-Released under the MIT licence; see [LICENCE](../LICENCE).
+MIT; see [LICENSE](https://github.com/MaxMilton/dockerfiles/blob/master/LICENSE).
 
 ---
 

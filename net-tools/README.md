@@ -40,9 +40,9 @@ abbr --add tcpdump 'docker run -ti --rm --network=host --volume="$PWD":/data loc
 abbr --add whois 'docker run -ti --rm local/net-tools whois'
 ```
 
-## Licence
+## License
 
-Released under the MIT licence; see [LICENCE](../LICENCE).
+MIT; see [LICENSE](https://github.com/MaxMilton/dockerfiles/blob/master/LICENSE).
 
 ---
 

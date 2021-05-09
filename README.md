@@ -48,7 +48,7 @@ REGISTRY=local make chromium
 
 ## Licence
 
-Released under the MIT licence; see [LICENCE](https://github.com/MaxMilton/dockerfiles/blob/master/LICENCE).
+MIT; see [LICENCE](https://github.com/MaxMilton/dockerfiles/blob/master/LICENCE).
 
 ---
 
