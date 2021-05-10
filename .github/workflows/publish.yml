@@ -26,6 +26,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - run: make ci
+      - run: make publish
         env:
           REGISTRY: ghcr.io/maxmilton

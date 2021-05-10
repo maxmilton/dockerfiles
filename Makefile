@@ -26,7 +26,8 @@ help:
 	@echo "make checkrebuild all ; build and check if image has update availables (using apk or apt-get)"
 	@echo "                        and rebuild with --no-cache if image has updates"
 	@echo "make pull-base        ; pull base images from docker hub used to bootstrap other images"
-	@echo "make ci               ; alias to make pull-base checkrebuild push all"
+	@echo "make ci               ; alias to make pull-base checkrebuild all"
+	@echo "make publish          ; alias to make pull-base checkrebuild push all"
 	@echo ""
 	@echo "You can chain actions, typically in CI environment you want make checkrebuild push all"
 	@echo "which rebuild and push only images having updates availables."
@@ -44,8 +45,10 @@ pull-base:
 	docker pull alpine:3.13
 
 ci:
-	# $(MAKE) pull-base checkrebuild push all
 	$(MAKE) pull-base checkrebuild all
+
+publish:
+	$(MAKE) pull-base checkrebuild push all
 
 alpine/edge/rootfs.tar.xz:
 	$(MAKE) $(REGISTRY)/alpine:builder
