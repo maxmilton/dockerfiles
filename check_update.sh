@@ -18,7 +18,7 @@ if test -z "$1"; then
   >&2 echo "$0 require image as argument"
   exit 64
 fi
-if docker run --rm --entrypoint sh -u root -v $(readlink -f $0):/check_update.sh $1 /check_update.sh; then
+if docker run --rm --entrypoint sh -u root -v "$(readlink -f $0)":/check_update.sh $1 /check_update.sh; then
   echo -e "\e[0;32m$1 is up-to-date\e[0m"
 elif expr match "$1" ".*alpine:builder\$"; then
   # skip over alpine:builder since it uses a base image we don't control
