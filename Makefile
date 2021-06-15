@@ -44,7 +44,9 @@ $(subst :,\:,$(REGISTRY))/alpine\:3.14: alpine/3.14/rootfs.tar.xz
 
 pull-base:
 	# Used by alpine:builder
-	docker pull alpine:3.14
+	docker pull alpine:3.13
+	# FIXME: Use once we update the builder
+	#docker pull alpine:3.14
 
 ci:
 	$(MAKE) pull-base checkrebuild all
