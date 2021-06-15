@@ -10,7 +10,7 @@
 <!-- prettier-ignore -->
 | Image | Badges | Description |
 | --- | --- | --- |
-| alpine:3.13 | x | Alpine linux v3.13 base image. |
+| alpine:3.14 | x | Alpine linux v3.14 base image. |
 | alpine:edge | x | Alpine linux edge base image. |
 | chromium | x | Ephemeral Chromium browser for ad-hoc use. |
 | chromium-test | x | Ephemeral and completely fresh/default Chromium browser for testing. |

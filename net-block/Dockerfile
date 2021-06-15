@@ -1,7 +1,7 @@
 # Net block; ad blocking DNS server
 
 ARG REGISTRY
-FROM $REGISTRY/alpine:3.13
+FROM $REGISTRY/alpine:3.14
 
 LABEL org.opencontainers.image.source=https://github.com/maxmilton/dockerfiles
 LABEL org.opencontainers.image.documentation=https://github.com/MaxMilton/dockerfiles/blob/master/net-block/README.md
