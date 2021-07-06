@@ -13,16 +13,13 @@ script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd -P)
 # allow X11 forwarding permission
 xhost +local:"$USER"
 
-xhost +local:root
-xhost +local:docker
-
 # Arch Linux version with special sound configuration
 # NOTE: Adjust ALSA output device as required
 docker run \
   --rm \
   --name chromium \
   --network host \
-  --memory 2gb \
+  --memory 3gb \
   --read-only \
   --tmpfs /run:rw,nosuid,nodev \
   --tmpfs /tmp:rw,nosuid,nodev \
@@ -30,7 +27,7 @@ docker run \
   --tmpfs /home/chromium:rw,nosuid,nodev,uid=6006,gid=6006,mode=0700,size=4m \
   --volume /tmp/.X11-unix:/tmp/.X11-unix:ro \
   --volume "$XDG_RUNTIME_DIR"/pulse/native:"$XDG_RUNTIME_DIR"/pulse/native:ro \
-  --shm-size=256m \
+  --shm-size=512m \
   --device /dev/snd \
   --device /dev/dri \
   --env DISPLAY=unix"$DISPLAY" \
