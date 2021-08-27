@@ -13,13 +13,23 @@
 | alpine:3.14 | x | Alpine linux v3.14 base image. |
 | alpine:edge | x | Alpine linux edge base image. |
 | chromium | x | Ephemeral Chromium browser for ad-hoc use. |
-| chromium-test | x | Ephemeral and completely fresh/default Chromium browser for testing. |
 | firefox | x | Ephemeral Firefox browser for ad-hoc use. |
 | gcloud | x | Google Cloud SDK CLI tool. |
-| midori | x | Ephemeral Midori browser for ad-hoc use. |
 | net-block | x | Transparent network proxy with ad-blocking capabilities. |
 | net-cache | x | Extreme local caching for 💩 networks. |
 | net-tools | x | Collection of network tools. |
+
+There are more images I only use for specific use cases in the `.extra` directory. These don't get built by default with the Makefile nor do they get tested in the CI workflow.
+
+<!-- prettier-ignore -->
+| Image | Badges | Description |
+| --- | --- | --- |
+| chromium-defaults | x | Ephemeral and completely fresh/default Chromium browser for testing. |
+| chromium-old-47 | x | Chromium browser v47 for compatibility testing. |
+| chromium-old-53 | x | Chromium browser v53 for compatibility testing. |
+| chromium-old-72 | x | Chromium browser v72 for compatibility testing. |
+| chromium-old-81 | x | Chromium browser v81 for compatibility testing. |
+| midori | x | Ephemeral Midori browser for ad-hoc use. |
 
 ## How to use
 
@@ -45,7 +55,7 @@ REGISTRY=local make chromium
 
 ## Licence
 
-MIT; see [LICENCE](https://github.com/MaxMilton/dockerfiles/blob/master/LICENCE).
+MIT license. See [LICENCE](https://github.com/MaxMilton/dockerfiles/blob/master/LICENCE).
 
 ---
 

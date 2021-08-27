@@ -4,7 +4,7 @@ Launch an ephemeral chromium instance in a Docker container. Useful for times yo
 
 Based on the [chromium image by jessfraz](https://github.com/jessfraz/dockerfiles/blob/master/chromium/Dockerfile) + [her seccomp profile](https://github.com/jessfraz/dotfiles/blob/master/etc/docker/seccomp/chrome.json).
 
-Uses an opinionated [default configuration](https://github.com/MaxMilton/docker-chromium/blob/master/default.conf) for additional performance and security. If you need a fully default chromium use [my chromium-test image](../chromium-test).
+Uses an opinionated [default configuration](https://github.com/MaxMilton/docker-chromium/blob/master/default.conf) for additional performance and security. If you need a fully default chromium use [my chromium-defaults image](../chromium-defaults).
 
 ## Setup
 

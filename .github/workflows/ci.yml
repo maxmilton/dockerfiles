@@ -14,14 +14,10 @@ jobs:
         run: docker run --rm ci/alpine:3.14 echo 'OK'
       - name: Smoke test chromium
         run: docker run --rm ci/chromium:latest --version
-      - name: Smoke test chromium-test
-        run: docker run --rm ci/chromium-test:latest --version
       - name: Smoke test firefox
         run: docker run --rm ci/firefox:latest --version
       - name: Smoke test gcloud
         run: docker run --rm ci/gcloud:latest gcloud --version
-      - name: Smoke test midori
-        run: docker run --rm ci/midori:latest --version
       - name: Smoke test net-block
         run: docker run --rm ci/net-block:latest /usr/sbin/dnsmasq --version
       - name: Smoke test net-cache
