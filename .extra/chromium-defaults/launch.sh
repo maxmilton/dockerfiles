@@ -8,10 +8,12 @@ trap 'xhost -local:$USER' EXIT
 # allow X11 forwarding permission
 xhost +local:"$USER"
 
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd -P)
+
 # minimal completely fresh chromium for testing with no persistence
 docker run \
   --rm \
-  --name chromium-test \
+  --name chromium-defaults \
   --network host \
   --memory 1g \
   --tmpfs /home/chromium:rw,nosuid,nodev,uid=6007,gid=6007,mode=0700 \
@@ -22,4 +24,5 @@ docker run \
   --env DISPLAY=unix"$DISPLAY" \
   --group-add audio \
   --group-add video \
-  local/chromium "$@"
+  --security-opt seccomp="$script_dir"/seccomp.json \
+  local/chromium-defaults "$@"

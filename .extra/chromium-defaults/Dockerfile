@@ -7,10 +7,10 @@ FROM $REGISTRY/alpine:3.14
 LABEL org.opencontainers.image.source=https://github.com/maxmilton/dockerfiles
 
 RUN set -xe \
-  && addgroup -g 6007 -S chromium-test \
-  && adduser -D -u 6007 -S -h /home/chromium-test -s /sbin/nologin -G chromium-test chromium-test \
-  && adduser chromium-test audio \
-  && adduser chromium-test video \
+  && addgroup -g 6007 -S chromium-defaults \
+  && adduser -D -u 6007 -S -h /home/chromium-defaults -s /sbin/nologin -G chromium-defaults chromium-defaults \
+  && adduser chromium-defaults audio \
+  && adduser chromium-defaults video \
   && apk add --no-cache --virtual .system-deps \
     tzdata \
   && apk add --no-cache \
@@ -39,7 +39,7 @@ COPY default.conf /etc/chromium/default.conf
 COPY local.conf /etc/fonts/local.conf
 
 # run as non privileged user
-USER chromium-test
+USER chromium-defaults
 
 ENTRYPOINT ["/usr/bin/chromium-browser"]
 CMD ["about:blank"]
