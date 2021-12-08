@@ -10,8 +10,8 @@ jobs:
           REGISTRY: ci
       - name: Smoke test alpine:edge
         run: docker run --rm ci/alpine:edge echo 'OK'
-      - name: Smoke test alpine:3.14
-        run: docker run --rm ci/alpine:3.14 echo 'OK'
+      - name: Smoke test alpine:3.15
+        run: docker run --rm ci/alpine:3.15 echo 'OK'
       - name: Smoke test chromium
         run: docker run --rm ci/chromium:latest --version
       - name: Smoke test firefox
