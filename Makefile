@@ -2,8 +2,7 @@
 
 DOCKERFILES=$(shell find * -type f -name Dockerfile)
 NAMES=$(subst /,\:,$(subst /Dockerfile,,$(DOCKERFILES)))
-#REGISTRY?=docker.io
-REGISTRY?=local
+REGISTRY?=ghcr.io/maxmilton
 IMAGES=$(addprefix $(subst :,\:,$(REGISTRY))/,$(NAMES))
 DEPENDS=.depends.mk
 MAKEFLAGS += -rR
