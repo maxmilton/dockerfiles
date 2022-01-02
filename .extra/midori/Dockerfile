@@ -1,7 +1,7 @@
 # Midori Browser
 
 ARG REGISTRY
-FROM $REGISTRY/alpine:edge
+FROM alpine:edge
 
 LABEL org.opencontainers.image.source=https://github.com/maxmilton/dockerfiles
 

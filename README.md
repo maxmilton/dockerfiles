@@ -10,8 +10,6 @@
 <!-- prettier-ignore -->
 | Image | Badges | Description |
 | --- | --- | --- |
-| alpine:3.15 | x | Alpine linux v3.15 base image. |
-| alpine:edge | x | Alpine linux edge base image. |
 | chromium | x | Ephemeral Chromium browser for ad-hoc use. |
 | firefox | x | Ephemeral Firefox browser for ad-hoc use. |
 | gcloud | x | Google Cloud SDK CLI tool. |

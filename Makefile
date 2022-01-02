@@ -9,7 +9,7 @@ MAKEFLAGS += -rR
 
 export DOCKER_BUILDKIT=1
 
-.PHONY: all clean push pull run exec check checkrebuild pull-base ci $(NAMES) $(IMAGES)
+.PHONY: all clean push pull run exec check checkrebuild ci $(NAMES) $(IMAGES)
 
 all: $(NAMES)
 
@@ -26,40 +26,20 @@ help:
 	@echo "make exec chromium    ; build and start interactive shell in chromium image (for debugging)"
 	@echo "make checkrebuild all ; build and check if image has update availables (using apk or apt-get)"
 	@echo "                        and rebuild with --no-cache if image has updates"
-	@echo "make pull-base        ; pull base images from docker hub used to bootstrap other images"
-	@echo "make ci               ; alias to make pull-base checkrebuild all"
-	@echo "make publish          ; alias to make pull-base checkrebuild push all"
+	@echo "make ci               ; alias to make checkrebuild all"
+	@echo "make publish          ; alias to make checkrebuild push all"
 	@echo ""
 	@echo "You can chain actions, typically in CI environment you want make checkrebuild push all"
 	@echo "which rebuild and push only images having updates availables."
 
 clean:
-	rm -f alpine/edge/rootfs.tar.xz
-	rm -f alpine/3.15/rootfs.tar.xz
 	rm -f $(DEPENDS)
 
-$(subst :,\:,$(REGISTRY))/alpine\:edge: alpine/edge/rootfs.tar.xz
-$(subst :,\:,$(REGISTRY))/alpine\:3.15: alpine/3.15/rootfs.tar.xz
-
-pull-base:
-	# Used by alpine:builder
-	docker pull alpine:3.15
-
 ci:
-	$(MAKE) pull-base checkrebuild all
+	$(MAKE) checkrebuild all
 
 publish:
-	$(MAKE) pull-base checkrebuild push all
-
-alpine/edge/rootfs.tar.xz:
-	$(MAKE) $(REGISTRY)/alpine:builder
-	docker run --rm $(REGISTRY)/alpine:builder -r edge -m http://dl-cdn.alpinelinux.org/alpine -b -t UTC \
-		-p alpine-baselayout,busybox,alpine-keys,apk-tools,libc-utils -s > $@
-
-alpine/3.15/rootfs.tar.xz:
-	$(MAKE) $(REGISTRY)/alpine:builder
-	docker run --rm $(REGISTRY)/alpine:builder -r v3.15 -m http://dl-cdn.alpinelinux.org/alpine -b -t UTC \
-		-p alpine-baselayout,busybox,alpine-keys,apk-tools,libc-utils -s > $@
+	$(MAKE) checkrebuild push all
 
 .PHONY: $(DEPENDS)
 $(DEPENDS): $(DOCKERFILES)

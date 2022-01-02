@@ -4,7 +4,7 @@
 # FROM docker:19.03.6 as static-docker-source
 
 ARG REGISTRY
-FROM $REGISTRY/alpine:3.15
+FROM alpine:3.15
 
 LABEL org.opencontainers.image.source=https://github.com/maxmilton/dockerfiles
 
