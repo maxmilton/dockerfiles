@@ -2,6 +2,10 @@
 # apk package updates but we ALSO need publish when files within a build
 # context have changed
 #   ↳ Compare hash of current build vs what's on ghcr.io + existing check_update.sh logic
+#   ↳ Maybe something like `git diff --name-only <from> <to>` + get SHA hash of
+#     last master commit with successful publish + hash of current commit
+
+# TODO: Tag images with something deterministic (SHA1 hash?) + latest
 
 name: publish
 on:
