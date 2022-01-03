@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+REGISTRY=${REGISTRY:-'ghcr.io/maxmilton'}
+
 # revoke X11 forwarding permission on exit
 set -o errtrace
 trap 'xhost -local:$USER' EXIT
@@ -25,4 +27,4 @@ docker run \
   --group-add audio \
   --group-add video \
   --security-opt seccomp="$script_dir"/seccomp.json \
-  local/chromium-defaults "$@"
+  "$REGISTRY"/chromium-defaults "$@"

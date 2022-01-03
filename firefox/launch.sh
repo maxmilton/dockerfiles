@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+REGISTRY=${REGISTRY:-'ghcr.io/maxmilton'}
+
 # revoke X11 forwarding permission on exit
 set -o errtrace
 trap 'xhost -local:$USER' EXIT
@@ -28,4 +30,4 @@ docker run \
   --group-add video \
   --cap-drop=all \
   --security-opt no-new-privileges \
-  local/firefox "$@"
+  "$REGISTRY"/firefox "$@"

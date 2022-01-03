@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+REGISTRY=${REGISTRY:-'ghcr.io/maxmilton'}
+
 # revoke X11 forwarding permission on exit
 set -o errtrace
 trap 'xhost -local:$USER' EXIT
@@ -19,4 +21,4 @@ docker run \
   --shm-size=128m \
   --env DISPLAY=unix"$DISPLAY" \
   --cap-add=SYS_ADMIN \
-  local/chromium-old-81 "$@"
+  "$REGISTRY"/chromium-old-81 "$@"

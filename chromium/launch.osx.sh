@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+REGISTRY=${REGISTRY:-'ghcr.io/maxmilton'}
+
 system_ip=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
 script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd -P)
 
@@ -32,4 +34,4 @@ trap '/opt/X11/bin/xhost - $system_ip; kill 0' EXIT
   --cap-add SYS_ADMIN \
   --security-opt no-new-privileges \
   --security-opt seccomp="$script_dir"/seccomp.json \
-  local/chromium "$@"
+  "$REGISTRY"/chromium "$@"

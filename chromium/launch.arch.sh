@@ -4,6 +4,8 @@ set -euo pipefail
 # README:
 #   On Arch Linux audio needs additional options
 
+REGISTRY=${REGISTRY:-'ghcr.io/maxmilton'}
+
 # revoke X11 forwarding permission on exit
 set -o errtrace
 trap 'xhost -local:$USER' EXIT
@@ -37,4 +39,4 @@ docker run \
   --cap-drop=all \
   --security-opt no-new-privileges \
   --security-opt seccomp="$script_dir"/seccomp.json \
-  local/chromium --alsa-output-device=hw:0,0 about:blank "$@"
+  "$REGISTRY"/chromium --alsa-output-device=hw:0,0 about:blank "$@"

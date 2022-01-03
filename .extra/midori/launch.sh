@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+REGISTRY=${REGISTRY:-'ghcr.io/maxmilton'}
+
 # revoke X11 forwarding permission on exit
 set -o errtrace
 trap 'xhost -local:$USER' EXIT
@@ -23,4 +25,4 @@ docker run \
   --env DISPLAY=unix"$DISPLAY" \
   --cap-drop=all \
   --security-opt no-new-privileges \
-  local/midori "$@"
+  "$REGISTRY"/midori "$@"

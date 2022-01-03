@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+REGISTRY=${REGISTRY:-'ghcr.io/maxmilton'}
+
 # revoke X11 forwarding permission on exit
 set -o errtrace
 trap 'xhost -local:$USER' EXIT
@@ -34,7 +36,7 @@ docker run \
   --cap-drop=all \
   --security-opt no-new-privileges \
   --security-opt seccomp="$script_dir"/seccomp.json \
-  local/chromium "$@"
+  "$REGISTRY"/chromium "$@"
 
 # ------------------------------------------------- #
 
@@ -63,4 +65,4 @@ docker run \
 #   --volume /etc/localtime:/etc/localtime:ro \
 #   --volume "$HOME"/Downloads:/home/chromium/Downloads:rw \
 #   --volume "$HOME"/.config/chromium/:/data:rw \
-#   local/chromium "$@"
+#   "$REGISTRY"/chromium "$@"
