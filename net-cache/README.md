@@ -50,4 +50,4 @@ MIT; see [LICENSE](https://github.com/MaxMilton/dockerfiles/blob/master/LICENSE)
 
 ---
 
-© 2021 [Max Milton](https://maxmilton.com)
+© 2022 [Max Milton](https://maxmilton.com)
