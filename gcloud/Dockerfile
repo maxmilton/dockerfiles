@@ -6,12 +6,12 @@
 # https://github.com/maxmilton/dotfiles/blob/master/private_dot_config/fish/functions/gcloud-sdk.fish
 
 ARG REGISTRY
-FROM alpine:3.15
+FROM alpine:3.16
 
 LABEL org.opencontainers.image.source=https://github.com/maxmilton/dockerfiles
 
 # https://cloud.google.com/sdk/docs/release-notes
-ENV CLOUD_SDK_VERSION=384.0.1
+ENV CLOUD_SDK_VERSION=386.0.0
 ENV PATH /google-cloud-sdk/bin:$PATH
 
 RUN set -xe \

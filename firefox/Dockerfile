@@ -1,7 +1,7 @@
 # Firefox Browser
 
 ARG REGISTRY
-FROM alpine:3.15
+FROM alpine:3.16
 
 LABEL org.opencontainers.image.source=https://github.com/maxmilton/dockerfiles
 
