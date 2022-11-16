@@ -2,7 +2,7 @@
 # NOTE: See default.conf for all custom Chromium settings
 
 ARG REGISTRY
-FROM alpine:3.16
+FROM alpine:3.17
 
 LABEL org.opencontainers.image.source=https://github.com/maxmilton/dockerfiles
 LABEL org.opencontainers.image.documentation=https://github.com/MaxMilton/dockerfiles/blob/master/chromium/README.md
