@@ -1,4 +1,4 @@
-[![Build status](https://img.shields.io/github/workflow/status/MaxMilton/dockerfiles/ci)](https://github.com/MaxMilton/dockerfiles/actions)
+[![Build status](https://img.shields.io/github/actions/workflow/status/MaxMilton/dockerfiles/ci.yml?branch=master)](https://github.com/MaxMilton/dockerfiles/actions)
 [![Licence](https://img.shields.io/github/license/MaxMilton/dockerfiles.svg)](https://github.com/MaxMilton/dockerfiles/blob/master/LICENSE)
 
 # Max's Dockerfiles
