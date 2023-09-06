@@ -6,7 +6,7 @@
 # https://github.com/maxmilton/dotfiles/blob/master/private_dot_config/fish/functions/gcloud-sdk.fish
 
 ARG REGISTRY
-FROM alpine:3.17
+FROM alpine:3.18
 
 LABEL org.opencontainers.image.source=https://github.com/maxmilton/dockerfiles
 
