@@ -1,6 +1,6 @@
 # Chromium Browser OLD VERSION 81
 
-FROM alpine:3.11
+FROM alpine:3.19
 
 RUN set -xe \
   && addgroup -g 6008 -S chromium-old-81 \
