@@ -1,7 +1,7 @@
 # Net cache; proxy for speeding up 💩 networks and reducing data use
 
 ARG REGISTRY
-FROM alpine:3.19
+FROM alpine:3.21
 
 LABEL org.opencontainers.image.source=https://github.com/maxmilton/dockerfiles
 LABEL org.opencontainers.image.documentation=https://github.com/MaxMilton/dockerfiles/blob/master/net-cache/README.md
