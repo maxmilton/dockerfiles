@@ -57,4 +57,4 @@ MIT license. See [LICENCE](https://github.com/MaxMilton/dockerfiles/blob/master/
 
 ---
 
-© 2022 [Max Milton](https://maxmilton.com)
+© 2024 [Max Milton](https://maxmilton.com)
