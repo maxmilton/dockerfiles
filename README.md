@@ -51,10 +51,10 @@ Make a specific image:
 REGISTRY=local make chromium
 ```
 
-## Licence
+## License
 
-MIT license. See [LICENCE](https://github.com/MaxMilton/dockerfiles/blob/master/LICENCE).
+MIT license. See [LICENCE](./LICENCE).
 
 ---
 
-© 2024 [Max Milton](https://maxmilton.com)
+© 2025 [Max Milton](https://maxmilton.com)
