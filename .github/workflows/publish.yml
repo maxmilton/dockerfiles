@@ -8,6 +8,7 @@
 # TODO: Tag images with something deterministic (SHA1 hash?) + latest
 
 name: publish
+
 on:
   workflow_run:
     workflows:
@@ -16,9 +17,11 @@ on:
       - completed
     branches:
       - master
+  workflow_dispatch:
+
 jobs:
   push_to_registry:
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event_name != 'pull_request' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event_name != 'pull_request' && github.repository_owner == 'maxmilton' }}
     runs-on: ubuntu-latest
     permissions:
       packages: write
