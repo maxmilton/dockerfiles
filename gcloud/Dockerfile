@@ -11,7 +11,7 @@ FROM alpine:3.22
 LABEL org.opencontainers.image.source=https://github.com/maxmilton/dockerfiles
 
 # https://cloud.google.com/sdk/docs/release-notes
-ENV CLOUD_SDK_VERSION=534.0.0
+ENV CLOUD_SDK_VERSION=548.0.0
 ENV PATH /google-cloud-sdk/bin:$PATH
 
 RUN set -xe \
