@@ -2,7 +2,7 @@
 # NOTE: See default.conf for all custom Chromium settings
 
 ARG REGISTRY
-FROM alpine:3.22
+FROM alpine:3.22@sha256:4b7ce07002c69e8f3d704a9c5d6fd3053be500b7f1c69fc0d80990c2ad8dd412
 
 LABEL org.opencontainers.image.source=https://github.com/maxmilton/dockerfiles
 
