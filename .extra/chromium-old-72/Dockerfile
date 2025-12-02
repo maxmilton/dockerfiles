@@ -1,6 +1,6 @@
 # Chromium Browser OLD VERSION 72
 
-FROM alpine:3.9
+FROM alpine:3.9@sha256:414e0518bb9228d35e4cd5165567fb91d26c6a214e9c95899e1e056fcd349011
 
 RUN set -xe \
   && addgroup -g 6008 -S chromium-old-72 \
