@@ -20,4 +20,4 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
-      - uses: crate-ci/typos@06d010dfe4c84fdab1a25ea02b57b3585018ba80 # v1
+      - uses: crate-ci/typos@631208b7aac2daa8b707f55e7331f9112b0e062d # v1
