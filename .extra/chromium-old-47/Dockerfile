@@ -1,6 +1,6 @@
 # Chromium Browser OLD VERSION 47
 
-FROM alpine:3.3@sha256:6bff6f65597a69246f79233ef37ff0dc50d97eaecbabbe4f8a885bf358be1ecf
+FROM alpine:3.23@sha256:5b10f432ef3da1b8d4c7eb6c487f2f5a8f096bc91145e68878dd4a5019afde11
 
 RUN set -xe \
   && addgroup -g 6008 -S chromium-old-47 \
