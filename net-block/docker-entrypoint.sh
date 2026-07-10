@@ -5,7 +5,7 @@ set -ex
 HOSTS=https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts
 HOSTS_FILE=/etc/hosts.block
 
-if [[ -z ${1} ]]; then
+if test -z "${1:-}"; then
   echo "Downloading hosts file..."
 
   # Download hosts file
