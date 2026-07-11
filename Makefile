@@ -5,6 +5,8 @@ NAMES=$(subst /,\:,$(subst /Dockerfile,,$(DOCKERFILES)))
 REGISTRY?=ghcr.io/maxmilton
 IMAGES=$(addprefix $(subst :,\:,$(REGISTRY))/,$(NAMES))
 DEPENDS=.depends.mk
+GIT_SHA:=$(shell git rev-parse --short HEAD)
+LAST_PUBLISHED_SHA?=
 MAKEFLAGS += -rR
 
 export DOCKER_BUILDKIT=1
@@ -33,7 +35,7 @@ help:
 	@echo "which rebuild and push only images having updates availables."
 
 clean:
-	rm -f $(DEPENDS)
+	rm -f $(DEPENDS) .apk-changed-*
 
 ci:
 	$(MAKE) checkrebuild all
@@ -51,7 +53,7 @@ sinclude $(DEPENDS)
 
 $(NAMES): %: $(REGISTRY)/%
 ifeq (push,$(filter push,$(MAKECMDGOALS)))
-	docker push $<
+	if ./should_publish.sh $@ "$(LAST_PUBLISHED_SHA)"; then docker push $< && docker push $<:$(GIT_SHA); else echo "$< unchanged, skipping publish"; fi
 endif
 ifeq (run,$(filter run,$(MAKECMDGOALS)))
 	docker run --rm -it $<
@@ -67,8 +69,8 @@ $(IMAGES): %:
 ifeq (pull,$(filter pull,$(MAKECMDGOALS)))
 	docker pull $@
 else
-	docker build --build-arg REGISTRY=$(REGISTRY) -t $@ $(subst :,/,$(subst $(REGISTRY)/,,$@))
+	docker build --build-arg REGISTRY=$(REGISTRY) -t $@ -t $@:$(GIT_SHA) $(subst :,/,$(subst $(REGISTRY)/,,$@))
 endif
 ifeq (checkrebuild,$(filter checkrebuild,$(MAKECMDGOALS)))
-	./check_update.sh $@ || (docker build --build-arg REGISTRY=$(REGISTRY) --no-cache -t $@ $(subst :,/,$(subst $(REGISTRY)/,,$@)) && ./check_update.sh $@)
+	./check_update.sh $@ || (touch .apk-changed-$(subst $(REGISTRY)/,,$@) && docker build --build-arg REGISTRY=$(REGISTRY) --no-cache -t $@ -t $@:$(GIT_SHA) $(subst :,/,$(subst $(REGISTRY)/,,$@)) && ./check_update.sh $@)
 endif

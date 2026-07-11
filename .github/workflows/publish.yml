@@ -26,6 +26,7 @@ jobs:
     permissions:
       packages: write
       contents: read
+      actions: read
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
       - uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4
@@ -33,6 +34,14 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Find last published commit
+        id: last_publish
+        run: |
+          SHA=$(gh run list --workflow=publish.yml --status=success --branch=master --limit=1 --json headSha --jq '.[0].headSha // empty')
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: make publish
         env:
           REGISTRY: ghcr.io/maxmilton
+          LAST_PUBLISHED_SHA: ${{ steps.last_publish.outputs.sha }}

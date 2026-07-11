@@ -1,4 +1,5 @@
 .depends.mk
+.apk-changed-*
 mitm.der
 mitm.pem
 rootfs.tar.xz
